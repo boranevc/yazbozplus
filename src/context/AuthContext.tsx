@@ -70,7 +70,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     // Parolayı kullanıcı objesinden çıkar (güvenlik için)
-    const { password: _, ...userWithoutPassword } = foundUser;
     const safeUser = { ...foundUser };
 
     setUser(safeUser);

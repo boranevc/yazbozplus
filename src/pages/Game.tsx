@@ -121,38 +121,6 @@ const Game = () => {
     }
   };
 
-  // Değer silme
-  const removeValue = (teamId: string, field: 'remainingPoints' | 'penalties', index: number) => {
-    setTeamInputs(prev => {
-      const newInputs = { ...prev };
-      if (newInputs[teamId]) {
-        newInputs[teamId][field] = newInputs[teamId][field].filter((_, i) => i !== index);
-        
-        // Toplamı hesapla
-        const totalRemaining = newInputs[teamId].remainingPoints.reduce((sum, val) => sum + val, 0);
-        const totalPenalties = newInputs[teamId].penalties.reduce((sum, val) => sum + val, 0);
-        const totalScore = totalRemaining + totalPenalties;
-
-        // Score'u güncelle
-        setScores(prevScores => {
-          const updatedScores = prevScores.map(score => {
-            if (score.teamId === teamId) {
-              return {
-                ...score,
-                remainingPoints: totalRemaining,
-                penalties: totalPenalties,
-                totalScore,
-              };
-            }
-            return score;
-          });
-          updateScores(updatedScores);
-          return updatedScores;
-        });
-      }
-      return newInputs;
-    });
-  };
 
   const handleFinish = () => {
     finishGame();
@@ -163,8 +131,6 @@ const Game = () => {
 
   const team1 = currentGame.teams[0];
   const team2 = currentGame.teams[1];
-  const score1 = scores.find(s => s.teamId === team1.id);
-  const score2 = scores.find(s => s.teamId === team2.id);
 
   return (
     <div className="min-h-screen game-bg p-2 sm:p-4 relative overflow-hidden">
