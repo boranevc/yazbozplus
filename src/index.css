@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Glassmorphism efekti - Uyumlu renk paleti - Daha okunabilir */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(79, 70, 229, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(79, 70, 229, 0.25);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(79, 70, 229, 0.15);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(129, 140, 248, 0.9);
+  box-shadow: 0 4px 20px 0 rgba(129, 140, 248, 0.5);
+}
+
+/* Home sayfası için özel input stili - Daha okunabilir */
+.input-team {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(129, 140, 248, 0.4) !important;
+  box-shadow: 0 4px 16px 0 rgba(79, 70, 229, 0.2);
+  color: #1e293b !important;
+  font-weight: 500;
+}
+
+.input-team::placeholder {
+  color: #64748b !important;
+  opacity: 0.7;
+}
+
+.input-team:focus {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(99, 102, 241, 0.8) !important;
+  box-shadow: 0 4px 20px 0 rgba(99, 102, 241, 0.4);
+  outline: none;
+}
+
+/* Text okunabilirliği için shadow ve kontrast */
+.text-readable {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text-readable-strong {
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+/* Animasyonlar */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(129, 140, 248, 0.8);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out;
+}
+
+/* Oyun temalı gradient arka plan - Uyumlu indigo-mor tonları */
+.game-bg {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #a855f7 50%, #9333ea 75%, #7c3aed 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Dekoratif oyun öğeleri */
+.game-dice {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.08;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: float 8s ease-in-out infinite;
+}
+
+.game-tile {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.12;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Touch optimizasyonları */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Mobil optimizasyonları */
+@media (max-width: 640px) {
+  .game-dice,
+  .game-tile {
+    display: none;
+  }
+  
+  /* Touch-friendly butonlar */
+  button {
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  input {
+    min-height: 44px;
+    font-size: 16px; /* iOS zoom önleme */
+  }
+  
+  /* Mobilde butonlar için daha büyük dokunma alanı */
+  button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+  }
+}
+
