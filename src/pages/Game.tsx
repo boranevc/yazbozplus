@@ -141,32 +141,32 @@ const Game = () => {
       <div className="hidden md:block absolute bottom-20 right-10 game-tile animate-float" style={{ animationDelay: '1s' }}>🀅</div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="glass-card rounded-2xl md:rounded-3xl p-4 md:p-8 animate-slide-in">
-          <h1 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6 drop-shadow-lg">🎮 Oyun Devam Ediyor</h1>
+        <div className="glass-card rounded-xl md:rounded-3xl p-3 md:p-8 animate-slide-in">
+          <h1 className="text-xl md:text-4xl font-bold text-white mb-2 md:mb-6 drop-shadow-lg">🎮 Oyun Devam Ediyor</h1>
 
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+          <div className="grid md:grid-cols-2 gap-3 md:gap-6 mb-3 md:mb-6">
             {/* Takım 1 */}
-            <div className="glass-card rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/30">
-              <h2 className="text-xl md:text-2xl font-semibold text-readable-strong mb-3 md:mb-4">👥 {team1.name}</h2>
+            <div className="glass-card rounded-lg md:rounded-2xl p-3 md:p-6 border border-white/30">
+              <h2 className="text-lg md:text-2xl font-semibold text-readable-strong mb-2 md:mb-4">👥 {team1.name}</h2>
               {team1.players.length > 0 && (
-                <p className="text-sm text-readable mb-4">
+                <p className="text-xs md:text-sm text-readable mb-2 md:mb-4">
                   Oyuncular: {team1.players.join(', ')}
                 </p>
               )}
               
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-readable-strong mb-2">
+                  <label className="block text-xs md:text-sm font-semibold text-readable-strong mb-1.5 md:mb-2">
                     📊 Kalan Puan
                   </label>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <input
                       type="text"
                       value={(inputValues[team1.id] && inputValues[team1.id].remainingPoints) || ''}
                       onChange={(e) => handleInputChange(team1.id, 'remainingPoints', e.target.value)}
                       onKeyDown={(e) => handleKeyPress(e, team1.id, 'remainingPoints')}
                       placeholder=""
-                      className="glass-input flex-1 px-3 md:px-4 py-3 md:py-3 rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-base md:text-lg min-h-[44px]"
+                      className="glass-input flex-1 px-2 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-sm md:text-lg min-h-[44px]"
                     />
                     <button
                       onClick={() => {
@@ -175,51 +175,51 @@ const Game = () => {
                           addValue(team1.id, 'remainingPoints', val);
                         }
                       }}
-                      className="px-4 md:px-4 py-3 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-xl transition font-semibold text-lg md:text-xl min-h-[44px] min-w-[44px]"
+                      className="px-3 md:px-4 py-2.5 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-lg md:rounded-xl transition font-semibold text-base md:text-xl min-h-[44px] min-w-[44px]"
                     >
                       +
                     </button>
                   </div>
-                  <div className="grid grid-cols-3 gap-2 mb-2">
+                  <div className="grid grid-cols-3 gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <button
                       onClick={() => addValue(team1.id, 'remainingPoints', '-101')}
-                      className="px-2 md:px-3 py-3 md:py-2 bg-red-500/80 hover:bg-red-600 active:bg-red-700 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[44px] touch-manipulation"
+                      className="px-1.5 md:px-3 py-2.5 md:py-2 bg-red-500/80 hover:bg-red-600 active:bg-red-700 text-white rounded-lg transition font-semibold text-[10px] md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       Sil (-101)
                     </button>
                     <button
                       onClick={() => addValue(team1.id, 'remainingPoints', '-202')}
-                      className="px-2 md:px-3 py-3 md:py-2 bg-red-600/80 hover:bg-red-700 active:bg-red-800 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[44px] touch-manipulation"
+                      className="px-1.5 md:px-3 py-2.5 md:py-2 bg-red-600/80 hover:bg-red-700 active:bg-red-800 text-white rounded-lg transition font-semibold text-[10px] md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       Çift Sil (-202)
                     </button>
                     <button
                       onClick={() => addValue(team1.id, 'remainingPoints', '808')}
-                      className="px-2 md:px-3 py-3 md:py-2 bg-purple-500/80 hover:bg-purple-600 active:bg-purple-700 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[44px] touch-manipulation"
+                      className="px-1.5 md:px-3 py-2.5 md:py-2 bg-purple-500/80 hover:bg-purple-600 active:bg-purple-700 text-white rounded-lg transition font-semibold text-[10px] md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       KAFA 😱
                     </button>
                   </div>
                   {teamInputs[team1.id]?.remainingPoints && teamInputs[team1.id].remainingPoints.length > 0 && (
-                    <div className="mt-2">
-                      <p className="text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
+                    <div className="mt-1 md:mt-2">
+                      <p className="text-xs md:text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
                         {teamInputs[team1.id].remainingPoints.join(', ')}
                       </p>
                     </div>
                   )}
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-readable-strong mb-2">
+                  <label className="block text-xs md:text-sm font-semibold text-readable-strong mb-1.5 md:mb-2">
                     ⚠️ Ceza
                   </label>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <input
                       type="text"
                       value={(inputValues[team1.id] && inputValues[team1.id].penalties) || ''}
                       onChange={(e) => handleInputChange(team1.id, 'penalties', e.target.value)}
                       onKeyDown={(e) => handleKeyPress(e, team1.id, 'penalties')}
                       placeholder=""
-                      className="glass-input flex-1 px-3 md:px-4 py-3 md:py-3 rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-base md:text-lg min-h-[44px]"
+                      className="glass-input flex-1 px-2 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-sm md:text-lg min-h-[44px]"
                     />
                     <button
                       onClick={() => {
@@ -228,22 +228,22 @@ const Game = () => {
                           addValue(team1.id, 'penalties', val);
                         }
                       }}
-                      className="px-4 md:px-4 py-3 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-xl transition font-semibold text-lg md:text-xl min-h-[44px] min-w-[44px]"
+                      className="px-3 md:px-4 py-2.5 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-lg md:rounded-xl transition font-semibold text-base md:text-xl min-h-[44px] min-w-[44px]"
                     >
                       +
                     </button>
                   </div>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <button
                       onClick={() => addValue(team1.id, 'penalties', '101')}
-                      className="w-full px-3 md:px-3 py-3 md:py-2 bg-orange-500/80 hover:bg-orange-600 active:bg-orange-700 text-white rounded-lg transition font-semibold text-sm md:text-sm min-h-[44px] touch-manipulation"
+                      className="w-full px-2 md:px-3 py-2.5 md:py-2 bg-orange-500/80 hover:bg-orange-600 active:bg-orange-700 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       101 CEZA
                     </button>
                   </div>
                   {teamInputs[team1.id]?.penalties && teamInputs[team1.id].penalties.length > 0 && (
-                    <div className="mt-2">
-                      <p className="text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
+                    <div className="mt-1 md:mt-2">
+                      <p className="text-xs md:text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
                         {teamInputs[team1.id].penalties.join(', ')}
                       </p>
                     </div>
@@ -253,27 +253,27 @@ const Game = () => {
             </div>
 
             {/* Takım 2 */}
-            <div className="glass-card rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/30">
-              <h2 className="text-xl md:text-2xl font-semibold text-readable-strong mb-3 md:mb-4">👥 {team2.name}</h2>
+            <div className="glass-card rounded-lg md:rounded-2xl p-3 md:p-6 border border-white/30">
+              <h2 className="text-lg md:text-2xl font-semibold text-readable-strong mb-2 md:mb-4">👥 {team2.name}</h2>
               {team2.players.length > 0 && (
-                <p className="text-sm text-readable mb-4">
+                <p className="text-xs md:text-sm text-readable mb-2 md:mb-4">
                   Oyuncular: {team2.players.join(', ')}
                 </p>
               )}
               
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-readable-strong mb-2">
+                  <label className="block text-xs md:text-sm font-semibold text-readable-strong mb-1.5 md:mb-2">
                     📊 Kalan Puan
                   </label>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <input
                       type="text"
                       value={(inputValues[team2.id] && inputValues[team2.id].remainingPoints) || ''}
                       onChange={(e) => handleInputChange(team2.id, 'remainingPoints', e.target.value)}
                       onKeyDown={(e) => handleKeyPress(e, team2.id, 'remainingPoints')}
                       placeholder=""
-                      className="glass-input flex-1 px-3 md:px-4 py-3 md:py-3 rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-base md:text-lg min-h-[44px]"
+                      className="glass-input flex-1 px-2 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-sm md:text-lg min-h-[44px]"
                     />
                     <button
                       onClick={() => {
@@ -282,51 +282,51 @@ const Game = () => {
                           addValue(team2.id, 'remainingPoints', val);
                         }
                       }}
-                      className="px-4 md:px-4 py-3 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-xl transition font-semibold text-lg md:text-xl min-h-[44px] min-w-[44px]"
+                      className="px-3 md:px-4 py-2.5 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-lg md:rounded-xl transition font-semibold text-base md:text-xl min-h-[44px] min-w-[44px]"
                     >
                       +
                     </button>
                   </div>
-                  <div className="grid grid-cols-3 gap-2 mb-2">
+                  <div className="grid grid-cols-3 gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <button
                       onClick={() => addValue(team2.id, 'remainingPoints', '-101')}
-                      className="px-2 md:px-3 py-3 md:py-2 bg-red-500/80 hover:bg-red-600 active:bg-red-700 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[44px] touch-manipulation"
+                      className="px-1.5 md:px-3 py-2.5 md:py-2 bg-red-500/80 hover:bg-red-600 active:bg-red-700 text-white rounded-lg transition font-semibold text-[10px] md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       Sil (-101)
                     </button>
                     <button
                       onClick={() => addValue(team2.id, 'remainingPoints', '-202')}
-                      className="px-2 md:px-3 py-3 md:py-2 bg-red-600/80 hover:bg-red-700 active:bg-red-800 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[44px] touch-manipulation"
+                      className="px-1.5 md:px-3 py-2.5 md:py-2 bg-red-600/80 hover:bg-red-700 active:bg-red-800 text-white rounded-lg transition font-semibold text-[10px] md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       Çift Sil (-202)
                     </button>
                     <button
                       onClick={() => addValue(team2.id, 'remainingPoints', '808')}
-                      className="px-2 md:px-3 py-3 md:py-2 bg-purple-500/80 hover:bg-purple-600 active:bg-purple-700 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[44px] touch-manipulation"
+                      className="px-1.5 md:px-3 py-2.5 md:py-2 bg-purple-500/80 hover:bg-purple-600 active:bg-purple-700 text-white rounded-lg transition font-semibold text-[10px] md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       KAFA 😱
                     </button>
                   </div>
                   {teamInputs[team2.id]?.remainingPoints && teamInputs[team2.id].remainingPoints.length > 0 && (
-                    <div className="mt-2">
-                      <p className="text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
+                    <div className="mt-1 md:mt-2">
+                      <p className="text-xs md:text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
                         {teamInputs[team2.id].remainingPoints.join(', ')}
                       </p>
                     </div>
                   )}
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-readable-strong mb-2">
+                  <label className="block text-xs md:text-sm font-semibold text-readable-strong mb-1.5 md:mb-2">
                     ⚠️ Ceza
                   </label>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <input
                       type="text"
                       value={(inputValues[team2.id] && inputValues[team2.id].penalties) || ''}
                       onChange={(e) => handleInputChange(team2.id, 'penalties', e.target.value)}
                       onKeyDown={(e) => handleKeyPress(e, team2.id, 'penalties')}
                       placeholder=""
-                      className="glass-input flex-1 px-3 md:px-4 py-3 md:py-3 rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-base md:text-lg min-h-[44px]"
+                      className="glass-input flex-1 px-2 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl text-black placeholder-gray-500 focus:outline-none transition-all duration-300 font-semibold text-sm md:text-lg min-h-[44px]"
                     />
                     <button
                       onClick={() => {
@@ -335,22 +335,22 @@ const Game = () => {
                           addValue(team2.id, 'penalties', val);
                         }
                       }}
-                      className="px-4 md:px-4 py-3 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-xl transition font-semibold text-lg md:text-xl min-h-[44px] min-w-[44px]"
+                      className="px-3 md:px-4 py-2.5 md:py-3 bg-indigo-500/80 hover:bg-indigo-600 text-white rounded-lg md:rounded-xl transition font-semibold text-base md:text-xl min-h-[44px] min-w-[44px]"
                     >
                       +
                     </button>
                   </div>
-                  <div className="flex gap-2 mb-2">
+                  <div className="flex gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                     <button
                       onClick={() => addValue(team2.id, 'penalties', '101')}
-                      className="w-full px-3 md:px-3 py-3 md:py-2 bg-orange-500/80 hover:bg-orange-600 active:bg-orange-700 text-white rounded-lg transition font-semibold text-sm md:text-sm min-h-[44px] touch-manipulation"
+                      className="w-full px-2 md:px-3 py-2.5 md:py-2 bg-orange-500/80 hover:bg-orange-600 active:bg-orange-700 text-white rounded-lg transition font-semibold text-xs md:text-sm min-h-[40px] md:min-h-[44px] touch-manipulation"
                     >
                       101 CEZA
                     </button>
                   </div>
                   {teamInputs[team2.id]?.penalties && teamInputs[team2.id].penalties.length > 0 && (
-                    <div className="mt-2">
-                      <p className="text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
+                    <div className="mt-1 md:mt-2">
+                      <p className="text-xs md:text-sm text-readable-strong font-semibold" style={{ color: '#000' }}>
                         {teamInputs[team2.id].penalties.join(', ')}
                       </p>
                     </div>
@@ -360,16 +360,16 @@ const Game = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+          <div className="flex flex-col sm:flex-row gap-2 md:gap-4 mt-3 md:mt-0">
             <button
               onClick={() => navigate('/')}
-              className="w-full sm:w-auto px-4 md:px-6 py-2.5 md:py-3 glass text-white rounded-xl hover:bg-white/30 transition font-medium text-sm md:text-base"
+              className="w-full sm:w-auto px-3 md:px-6 py-2 md:py-3 glass text-white rounded-lg md:rounded-xl hover:bg-white/30 transition font-medium text-sm md:text-base min-h-[44px]"
             >
               İptal
             </button>
             <button
               onClick={handleFinish}
-              className="flex-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-xl hover:from-indigo-600 hover:via-purple-600 hover:to-indigo-700 transition-all duration-300 font-bold text-sm md:text-base shadow-xl hover:shadow-2xl transform hover:scale-[1.02]"
+              className="flex-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 text-white py-2 md:py-3 px-3 md:px-6 rounded-lg md:rounded-xl hover:from-indigo-600 hover:via-purple-600 hover:to-indigo-700 transition-all duration-300 font-bold text-sm md:text-base shadow-xl hover:shadow-2xl transform hover:scale-[1.02] min-h-[44px]"
             >
               ✅ Oyunu Bitir
             </button>
